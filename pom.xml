@@ -189,7 +189,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.tale.Application</mainClass>
+                            <mainClass>com.zale.Application</mainClass>
                             <classpathPrefix>lib/</classpathPrefix>
                             <addClasspath>true</addClasspath>
                         </manifest>
