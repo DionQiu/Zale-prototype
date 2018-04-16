@@ -8,7 +8,7 @@
 
 [![Build Status](https://img.shields.io/travis/oZale/Zale.svg?style=flat-square)](https://travis-ci.org/oZale/Zale)
 [![License](https://img.shields.io/badge/license-MIT-4EB1BA.svg?style=flat-square)](https://github.com/oZale/Zale/blob/master/LICENSE)
-[![@biezhi on zhihu](https://img.shields.io/badge/zhihu-%40biezhi-red.svg?style=flat-square)](https://www.zhihu.com/people/biezhi)
+[![@IWiller on CSDN](https://img.shields.io/badge/CSDN-%40IWiller-red.svg?style=flat-square)](https://blog.csdn.net/shadow_zed)
 [![Gitter](https://badges.gitter.im/biezhi/Zale-group.svg)](https://gitter.im/Zale-group)
 
 [开始使用](https://github.com/DionQiu/Zale-prototype/wiki)&nbsp; | &nbsp;[参与贡献](https://github.com/DionQiu/Zale-prototype/pulls)&nbsp; | &nbsp;[捐赠](https://github.com/DionQiu/Zale-prototype/wiki)&nbsp; | &nbsp;[视频教程](https://github.com/oZale/Zale/wiki/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B)&nbsp; | &nbsp;[English](README.md)
