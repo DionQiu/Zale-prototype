@@ -6,9 +6,7 @@
 
 demo website：http://www.qstudy.club
 
-[![Build Status](https://img.shields.io/travis/oZale/Zale.svg?style=flat-square)](https://travis-ci.org/oZale/Zale)
 [![License](https://img.shields.io/badge/license-MIT-4EB1BA.svg?style=flat-square)](https://github.com/oZale/Zale/blob/master/LICENSE)
-[![@IWiller on CSDN](https://img.shields.io/badge/CSDN-%40IWiller-red.svg?style=flat-square)](https://blog.csdn.net/shadow_zed)
 [![Gitter](https://badges.gitter.im/biezhi/Zale-group.svg)](https://gitter.im/Zale-group)
 
 [QuickStart](https://github.com/DionQiu/Zale-prototype/wiki/QuickStart)&nbsp; | &nbsp;[Contribution](https://github.com/DionQiu/Zale-prototype/issues/new)&nbsp; | &nbsp;[Donate](https://github.com/DionQiu/Zale-prototype/wiki/9.-%E6%8D%90%E8%B5%A0%E6%88%91%E4%BB%AC)&nbsp; | &nbsp;[Video](https://github.com/oZale/Zale/wiki/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B)&nbsp; | &nbsp;[中文](README_ZH.md)
