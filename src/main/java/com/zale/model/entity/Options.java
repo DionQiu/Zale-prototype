@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 配置选项
  *
- * @author biezhi
+ * @author qyw
  */
 @Data
 @Table(value = "t_options", pk = "name")

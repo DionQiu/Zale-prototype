@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 元数据
  *
- * @author biezhi
+ * @author qyw
  */
 @Data
 @Table(value = "t_metas", pk = "mid")

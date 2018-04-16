@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Tale 常量存储
  *
- * @author biezhi
+ * @author qyw
  */
 public class TaleConst {
 

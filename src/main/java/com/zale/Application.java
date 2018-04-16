@@ -8,7 +8,7 @@ import com.zale.init.TaleLoader;
 /**
  * Tale启动类
  *
- * @author biezhi
+ * @author qyw
  */
 public class Application {
 

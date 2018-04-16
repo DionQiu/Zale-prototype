@@ -6,7 +6,7 @@ import com.zale.model.entity.Metas;
 /**
  * 后台公共函数
  * <p>
- * Created by biezhi on 2017/2/21.
+ * Created by qyw on 2017/2/21.
  */
 public final class AdminCommons {
 

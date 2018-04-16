@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 用户
  *
- * @author biezhi
+ * @author qyw
  */
 @Data
 @Table(value = "t_users", pk = "uid")

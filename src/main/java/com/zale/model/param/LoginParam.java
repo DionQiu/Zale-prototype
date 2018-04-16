@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 登录参数
  *
- * @author biezhi
+ * @author qyw
  * @date 2017/9/17
  */
 @Data

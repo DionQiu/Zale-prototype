@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * SQLite 数据库操作
  * <p>
- * Created by biezhi on 2017/3/4.
+ * Created by qyw on 2017/3/4.
  */
 @Slf4j
 @NoArgsConstructor

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 附件
  * <p>
- * Created by biezhi on 2017/2/23.
+ * Created by qyw on 2017/2/23.
  */
 @Data
 @Table("t_attach")

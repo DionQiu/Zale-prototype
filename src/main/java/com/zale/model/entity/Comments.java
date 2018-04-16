@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 /**
  * 评论
  *
- * @author biezhi
+ * @author qyw
  */
 @Data
 @Table(value = "t_comments", pk = "coid")

@@ -13,7 +13,7 @@ import static com.zale.init.TaleConst.MAX_TITLE_COUNT;
 /**
  * 内容
  *
- * @author biezhi
+ * @author qyw
  */
 @Data
 @Table(value = "t_contents", pk = "cid")
