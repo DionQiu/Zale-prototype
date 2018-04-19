@@ -6,10 +6,15 @@ import com.blade.jdbc.core.OrderBy;
 import com.blade.jdbc.page.Page;
 import com.blade.kit.BladeKit;
 import com.blade.kit.DateKit;
+import com.blade.kit.StringKit;
+import com.vdurmont.emoji.EmojiParser;
 import com.zale.exception.TipException;
+import com.zale.init.TaleConst;
 import com.zale.model.dto.Comment;
 import com.zale.model.entity.Comments;
 import com.zale.model.entity.Contents;
+import com.zale.utils.FilterBadWord;
+import com.zale.utils.TaleUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,4 +125,26 @@ public class CommentsService {
         }
         return null;
     }
+
+    /**
+     * 对评论内容进行处理,过滤xss与敏感词汇,emoji替换
+     *
+     * @param comments
+     * @return
+     */
+
+    public Comments filterComments(Comments comments){
+        String authorXssed = TaleUtils.cleanXSS(comments.getAuthor());
+        if(StringKit.isBlank(authorXssed)){
+            return null;
+        }
+        String contentXssed = TaleUtils.cleanXSS(comments.getContent());
+        if(StringKit.isBlank(contentXssed)){
+            return null;
+        }
+        comments.setAuthor(EmojiParser.parseToAliases(FilterBadWord.replace(authorXssed, TaleConst.SENSITIVE_REPLACE_CHAR)));
+        comments.setContent(EmojiParser.parseToAliases(FilterBadWord.replace(contentXssed,TaleConst.SENSITIVE_REPLACE_CHAR)));
+        return comments;
+    }
+
 }

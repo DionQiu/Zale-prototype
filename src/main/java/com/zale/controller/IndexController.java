@@ -259,14 +259,13 @@ public class IndexController extends BaseController {
             return RestResponse.fail("您发表评论太快了，请过会再试");
         }
 
-        comments.setAuthor(TaleUtils.cleanXSS(comments.getAuthor()));
-        comments.setContent(TaleUtils.cleanXSS(comments.getContent()));
-
-        comments.setAuthor(EmojiParser.parseToAliases(comments.getAuthor()));
-        comments.setContent(EmojiParser.parseToAliases(comments.getContent()));
         comments.setIp(request.address());
         comments.setParent(comments.getCoid());
-
+        log.info("评论实体在过滤之前的内容: "+comments.toString());
+        comments = commentsService.filterComments(comments);
+        if(comments==null){
+            return RestResponse.fail("您发表评论内容不合法,请修改后再试");
+        }
         try {
             commentsService.saveComment(comments);
             response.cookie("tale_remember_author", URLEncoder.encode(comments.getAuthor(), "UTF-8"), 7 * 24 * 60 * 60);

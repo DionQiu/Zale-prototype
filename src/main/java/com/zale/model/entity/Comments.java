@@ -56,7 +56,7 @@ public class Comments extends ActiveRecord {
 
     // 评论内容
     @NotEmpty(message = "请输入评论内容")
-    @Length(max = 2000, message = "请输入%d个字符以内的评论")
+    @Length(max = 140, message = "请输入%d个字符以内的评论")
     private String content;
 
     // 评论类型

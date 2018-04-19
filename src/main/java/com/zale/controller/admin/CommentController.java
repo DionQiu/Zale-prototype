@@ -13,6 +13,7 @@ import com.zale.model.entity.Comments;
 import com.zale.model.entity.Users;
 import com.zale.service.CommentsService;
 import com.zale.service.SiteService;
+import com.zale.utils.FilterBadWord;
 import com.zale.utils.TaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
@@ -98,15 +99,22 @@ public class CommentController extends BaseController {
             return RestResponse.fail("请输入完整后评论");
         }
 
-        if (content.length() > 2000) {
-            return RestResponse.fail("请输入2000个字符以内的回复");
+        if (content.length() > 140) {
+            return RestResponse.fail("请输入140个字符以内的回复");
         }
         Comments c = commentsService.byId(coid);
         if (null == c) {
             return RestResponse.fail("不存在该评论");
         }
         Users users = this.user();
+        //过滤脚本
+        //log.info("过滤之前的内容: "+content);
         content = TaleUtils.cleanXSS(content);
+        //log.info("cleanXSS过滤之后的内容: "+content);
+        //过滤敏感词汇
+        content = FilterBadWord.replace(content, "*");
+        //log.info("FilterBadWord过滤之后的内容: "+content);
+        //过滤emoji字符
         content = EmojiParser.parseToAliases(content);
 
         Comments comments = new Comments();

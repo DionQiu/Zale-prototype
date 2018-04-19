@@ -13,13 +13,15 @@ import java.util.*;
  */
 public class TaleConst {
 
-    public static final String      USER_IN_COOKIE    = "S_L_ID";
+    public static final String    USER_IN_COOKIE    = "S_L_ID";
+    public static final String    SENSITIVE_REPLACE_CHAR="x";
     public static       String      AES_SALT          = "0123456789abcdef";
     public static       String      LOGIN_SESSION_KEY = "login_user";
     public static       Environment OPTIONS           = Environment.of(new HashMap<>());
     public static       Boolean     INSTALLED         = false;
     public static       Boolean     ENABLED_CDN       = true;
     public static       Environment BCONF             = null;
+
 
     /**
      * 最大页码
