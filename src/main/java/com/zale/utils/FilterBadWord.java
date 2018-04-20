@@ -1,14 +1,12 @@
 package com.zale.utils;
 
 import com.blade.kit.StringKit;
-import com.zale.init.TaleConst;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by qyw on 2018/4/19.
@@ -63,20 +61,42 @@ public class FilterBadWord {
     }
 
     /**
-     * 检查敏感字内容
+     * 检查字多个字符串中是否含有敏感词
      * @param contents
      */
-    public static String check(String ...contents) {
+    public static boolean checkContents(String ...contents) {
         if(!wordfilter.exists())
-            return null;
+            return false;
         checkReload();
+
         for(String word : words){
             for(String content : contents)
                 if(content!=null && content.indexOf(word) >= 0)
-                    return word;
+                    return true;
         }
-        return null;
+        return false;
     }
+
+    /**
+     * 筛选多个字符串(字符串数组)中含有敏感词汇的set集合
+     * @param contents
+     */
+    public static Set<String> pick(String ...contents) {
+        if(!wordfilter.exists() || contents==null || contents.length==0)
+            return Collections.EMPTY_SET;
+        checkReload();
+        Set<String> newWords=new HashSet<>();
+        for(String word : words){
+            for(String content : contents){
+                if(content!=null && content.indexOf(word) >= 0)
+                    newWords.add(word);
+            }
+
+        }
+        return newWords;
+    }
+
+
 
     /**
      * 检查字符串是否包含敏感词
@@ -152,14 +172,15 @@ public class FilterBadWord {
         lastModified = wordfilter.lastModified();
     }
 
-    public static void main(String[] args) throws Exception{
+   /* public static void main(String[] args) throws Exception{
         System.out.println(FilterBadWord.replace("中国共产党钓鱼岛sb","*"));
         System.out.println(FilterBadWord.replace(null,"*"));
         System.out.println(FilterBadWord.isContain("傻逼"));
         System.out.println(FilterBadWord.isContain("sb"));
         System.out.println(FilterBadWord.isContain("弱智"));
+        System.out.println(FilterBadWord.pick("中国共产党钓鱼岛sb","sb12"));
         FilterBadWord.add("傻逼");
-    }
+    }*/
 
 
 }
