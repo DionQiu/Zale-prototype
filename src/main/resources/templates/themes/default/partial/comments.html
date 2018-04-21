@@ -13,7 +13,7 @@
                    placeholder="昵称 (*)" value="${login_user.username ?! ''}" required oninvalid="this.setCustomValidity('请 输 入 昵 称 ');" oninput="setCustomValidity('')" autocomplete="off"/>
             <input type="email" name="mail" id="mail" class="form-control input-control clearfix" placeholder="邮箱 (*)"
                    value="${login_user.email ?! ''}" required  oninvalid="this.setCustomValidity('请 输 入 正 确 的 邮 箱 ');" oninput="setCustomValidity('')" autocomplete="off"/>
-            <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网站 (请以 http://开头)"
+            <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网站 (http://)"
                    value="${login_user.home_url ?! ''}"/>
             <textarea name="content" id="textarea" class="form-control"  placeholder="大侠，请留下你的评论." required   maxlength="140" oninvalid="this.setCustomValidity('请 输 入 评 论 内 容 ');" oninput="setCustomValidity('')"></textarea>
             <button class="submit" id="misubmit">提交</button>
