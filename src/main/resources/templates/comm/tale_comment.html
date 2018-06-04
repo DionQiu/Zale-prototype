@@ -21,6 +21,7 @@
                             if (result.msg) {
                                 alert(result.msg);
                                 window.location.reload();
+
                             }
                         }
                     }
@@ -33,15 +34,27 @@
     function getCommentCookie(name) {
         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
         if (arr = document.cookie.match(reg))
-            return unescape(decodeURI(arr[2]));
+            return decodeURIComponent(arr[2]);
         else
             return null;
     }
 
     function addCommentInputValue() {
-        document.getElementById('author').value = getCommentCookie('tale_remember_author');
-        document.getElementById('mail').value = getCommentCookie('tale_remember_mail');
-        document.getElementById('url').value = getCommentCookie('tale_remember_url');
+
+        var author= document.getElementById('author');
+        var mail= document.getElementById('mail');
+        var url= document.getElementById('url')
+        if(author!==null){
+            author.value = getCommentCookie('zale_remember_author');
+        }
+        if(mail!==null){
+            mail.value   = getCommentCookie('zale_remember_mail');
+
+        }
+        if(url!==null){
+            url.value    = getCommentCookie('zale_remember_url');
+        }
+
     }
 
     addCommentInputValue();

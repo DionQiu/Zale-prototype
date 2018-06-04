@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 评论管理
  * <p>
- * Created by biezhi on 2017/2/26.
+ * Created by qyw on 2017/2/26.
  */
 @Slf4j
 @Path("admin/comments")
@@ -107,14 +107,11 @@ public class CommentController extends BaseController {
             return RestResponse.fail("不存在该评论");
         }
         Users users = this.user();
-        //过滤脚本
-        //log.info("过滤之前的内容: "+content);
+
         content = TaleUtils.cleanXSS(content);
-        //log.info("cleanXSS过滤之后的内容: "+content);
-        //过滤敏感词汇
+
         content = FilterBadWord.replace(content, "*");
-        //log.info("FilterBadWord过滤之后的内容: "+content);
-        //过滤emoji字符
+
         content = EmojiParser.parseToAliases(content);
 
         Comments comments = new Comments();

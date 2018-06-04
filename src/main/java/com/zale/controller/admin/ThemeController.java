@@ -40,9 +40,9 @@ public class ThemeController extends BaseController {
     @GetRoute(value = "")
     public String index(Request request) {
         // 读取主题
-        String         themesDir  = AttachController.CLASSPATH + "templates/themes";
-        File[]         themesFile = new File(themesDir).listFiles();
-        List<ThemeDto> themes     = new ArrayList<>(themesFile.length);
+        String themesDir = AttachController.CLASSPATH + "templates/themes";
+        File[] themesFile = new File(themesDir).listFiles();
+        List<ThemeDto> themes = new ArrayList<>(themesFile.length);
         for (File f : themesFile) {
             if (f.isDirectory()) {
                 ThemeDto themeDto = new ThemeDto(f.getName());
@@ -68,14 +68,16 @@ public class ThemeController extends BaseController {
      * @return
      */
     @GetRoute(value = "setting")
+    @SuppressWarnings("unchecked")
     public String setting(Request request) {
         String currentTheme = Commons.site_theme();
-        String key          = "theme_" + currentTheme + "_options";
+        String key = "theme_" + currentTheme + "_options";
 
-        String              option = optionsService.getOption(key);
-        Map<String, Object> map    = new HashMap<>();
+        String option = optionsService.getOption(key);
+        Map<String, Object> map = new HashMap<>();
         try {
             if (StringKit.isNotBlank(option)) {
+
                 map = JsonKit.toAson(option);
             }
             request.attribute("theme_options", map);
@@ -100,7 +102,7 @@ public class ThemeController extends BaseController {
 
             // theme_milk_options => {  }
             String currentTheme = Commons.site_theme();
-            String key          = "theme_" + currentTheme + "_options";
+            String key = "theme_" + currentTheme + "_options";
 
             Map<String, String> options = new HashMap<>();
             query.forEach((k, v) -> options.put(k, v.get(0)));

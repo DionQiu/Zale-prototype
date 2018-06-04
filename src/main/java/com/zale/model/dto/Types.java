@@ -1,7 +1,7 @@
 package com.zale.model.dto;
 
 /**
- * Created by biezhi on 2017/2/21.
+ * Created by biezhi on 2017/9/21.
  */
 public interface Types {
 

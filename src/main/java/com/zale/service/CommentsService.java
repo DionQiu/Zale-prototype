@@ -6,7 +6,6 @@ import com.blade.jdbc.core.OrderBy;
 import com.blade.jdbc.page.Page;
 import com.blade.kit.BladeKit;
 import com.blade.kit.DateKit;
-import com.blade.kit.StringKit;
 import com.vdurmont.emoji.EmojiParser;
 import com.zale.exception.TipException;
 import com.zale.init.TaleConst;
@@ -58,7 +57,7 @@ public class CommentsService {
     }
 
     /**
-     * 删除评论，暂时没用
+     * 删除评论
      *
      * @param coid
      * @param cid
@@ -135,16 +134,14 @@ public class CommentsService {
 
     public Comments filterComments(Comments comments){
         String authorXssed = TaleUtils.cleanXSS(comments.getAuthor());
-        if(StringKit.isBlank(authorXssed)){
-            return null;
-        }
         String contentXssed = TaleUtils.cleanXSS(comments.getContent());
-        if(StringKit.isBlank(contentXssed)){
-            return null;
-        }
         comments.setAuthor(EmojiParser.parseToAliases(FilterBadWord.replace(authorXssed, TaleConst.SENSITIVE_REPLACE_CHAR)));
         comments.setContent(EmojiParser.parseToAliases(FilterBadWord.replace(contentXssed,TaleConst.SENSITIVE_REPLACE_CHAR)));
         return comments;
     }
+
+    /*public static void main(String[] args) {
+        System.out.println(TaleUtils.cleanXSS("<script>alert(1)</script>"));
+    }*/
 
 }

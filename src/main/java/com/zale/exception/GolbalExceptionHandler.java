@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 全局异常处理
  * <p>
- * Created by qyw on 10/07/2017.
+ * Created by qyw on 10/07/2018.
  */
 @Slf4j
 @Bean

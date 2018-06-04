@@ -5,49 +5,48 @@
         <span class="response">#if(null!=login_user) Hi，<a href="${login_user.home_url}" data-no-instant>${login_user.username}</a>
             如果你想 <a href="/logout" title="注销" data-no-instant>注销</a> ? #end</span>
 
-        <form method="post" id="comment-form" class="comment-form" onsubmit="return TaleComment.subComment();">
-            <input type="hidden" name="coid" id="coid"/>
-            <input type="hidden" name="cid" id="cid" value="${article.cid}"/>
-            <input type="hidden" name="csrf_token" value="${csrf_token}"/>
-            <input name="author" maxlength="12" id="author" class="form-control input-control clearfix"
-                   placeholder="昵称 (*)" value="${login_user.username ?! ''}" required oninvalid="this.setCustomValidity('请 输 入 昵 称 ');" oninput="setCustomValidity('')" autocomplete="off"/>
-            <input type="email" name="mail" id="mail" class="form-control input-control clearfix" placeholder="邮箱 (*)"
-                   value="${login_user.email ?! ''}" required  oninvalid="this.setCustomValidity('请 输 入 正 确 的 邮 箱 ');" oninput="setCustomValidity('')" autocomplete="off"/>
-            <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网站 (http://)"
-                   value="${login_user.home_url ?! ''}"/>
-            <textarea name="content" id="textarea" class="form-control"  placeholder="大侠，请留下你的评论." required   maxlength="140" oninvalid="this.setCustomValidity('请 输 入 评 论 内 容 ');" oninput="setCustomValidity('')"></textarea>
-            <button class="submit" id="misubmit">提交</button>
-        </form>
+<form method="post" id="comment-form" class="comment-form" onsubmit="return TaleComment.subComment();">
+    <input type="hidden" name="coid" id="coid"/>
+    <input type="hidden" name="cid" id="cid" value="${article.cid}"/>
+    <input type="hidden" name="csrf_token" value="${csrf_token}"/>
+    <input name="author" maxlength="12" id="author" class="form-control input-control clearfix"
+            placeholder="昵称 (*)" value="${login_user.username ?! ''}" required oninvalid="this.setCustomValidity('请 输 入 昵 称 ');" oninput="setCustomValidity('')" />
+    <input type="email" name="mail" id="mail" class="form-control input-control clearfix" placeholder="邮箱 (*)"
+            value="${login_user.email ?! ''}" required  oninvalid="this.setCustomValidity('请 输 入 正 确 的 邮 箱 ');" oninput="setCustomValidity('')" />
+    <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网站 (http://)"
+            value="${login_user.home_url ?! ''}"/>
+    <textarea name="content" id="textarea" class="form-control"  placeholder="大侠，请留下你的评论." required   maxlength="140" oninvalid="this.setCustomValidity('请 输 入 评 论 内 容 ');" oninput="setCustomValidity('')"></textarea>
+    <button class="submit" id="misubmit">提交</button>
+</form>
+#else
+<span class="response">评论已关闭.</span>
+#end
 
-        #else
-        <span class="response">评论已关闭.</span>
-        #end
+#set( comments = comments(6) )
 
-        #set( comments = comments(6) )
-
-        #if(!is_empty(comments))
-        <ol class="comment-list">
-            #for(comment : comments(6).rows)
-            <li id="li-comment-${comment.coid}" class="comment-body comment-parent comment-odd">
-                <div id="comment-${comment.coid}">
-                    <div class="comment-view" onclick="">
-                        <div class="comment-header">
-                            <img class="avatar" src="${gravatar(comment.mail)}?s=80&r=G&d=" title="${comment.author}"
-                                 width="80" height="80">
-                            <span class="comment-author">
-                                <a href="${comment.url}" target="_blank" rel="external nofollow">${comment.author}</a>
-                            </span>
-                        </div>
-                        <div class="comment-content">
-                            <span class="comment-author-at"></span>
-                            <p>${article(comment.content)}</p>
-                        </div>
-                        <div class="comment-meta">
-                            <time class="comment-time">${fmtdate(comment.created)}</time>
-                            <span class="comment-reply">
-                                <a rel="nofollow" onclick="TaleComment.reply('${comment.coid}');">回复</a>
-                            </span>
-                        </div>
+#if(!is_empty(comments))
+<ol class="comment-list">
+    #for(comment : comments(6).rows)
+    <li id="li-comment-${comment.coid}" class="comment-body comment-parent comment-odd">
+        <div id="comment-${comment.coid}">
+            <div class="comment-view" onclick="">
+                <div class="comment-header">
+                    <img class="avatar" src="${gravatar(comment.mail)}?s=80&r=G&d=" title="${comment.author}"
+                            width="80" height="80">
+                    <span class="comment-author">
+                        <a href="${comment.url}" target="_blank" rel="external nofollow">${comment.author}</a>
+                    </span>
+                </div>
+                <div class="comment-content">
+                    <span class="comment-author-at"></span>
+                    <p>${article(comment.content)}</p>
+                </div>
+                <div class="comment-meta">
+                    <time class="comment-time">${fmtdate(comment.created)}</time>
+                    <span class="comment-reply">
+                        <a rel="nofollow" onclick="TaleComment.reply('${comment.coid}');">回复</a>
+                    </span>
+                </div>
                     </div>
                 </div>
                 #if(comment.levels > 0)

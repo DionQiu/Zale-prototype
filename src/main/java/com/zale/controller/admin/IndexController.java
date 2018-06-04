@@ -171,7 +171,7 @@ public class IndexController extends BaseController {
      *
      * @return
      */
-    @Route(value = "backup", method = HttpMethod.POST)
+/*    @Route(value = "backup", method = HttpMethod.POST)
     @JSON
     public RestResponse backup(@Param String bk_type, @Param String bk_path,
                                Request request) {
@@ -192,7 +192,7 @@ public class IndexController extends BaseController {
             }
             return RestResponse.fail(msg);
         }
-    }
+    }*/
 
     /**
      * 保存高级选项设置
@@ -246,7 +246,7 @@ public class IndexController extends BaseController {
      * @param sleep
      * @return
      */
-    @Route(value = "reload", method = HttpMethod.GET)
+  /*  @Route(value = "reload", method = HttpMethod.GET)
     public void reload(@Param(defaultValue = "0") int sleep, Request request) {
         if (sleep < 0 || sleep > 999) {
             sleep = 10;
@@ -262,5 +262,5 @@ public class IndexController extends BaseController {
         } catch (Exception e) {
             log.error("重启系统失败", e);
         }
-    }
+    }*/
 }

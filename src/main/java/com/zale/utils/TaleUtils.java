@@ -41,7 +41,7 @@ import static com.zale.init.TaleConst.*;
 /**
  * Tale工具类
  * <p>
- * Created by biezhi on 2017/2/21.
+ * Created by qyw on 2018/2/21.
  */
 public class TaleUtils {
 
@@ -360,10 +360,10 @@ public class TaleUtils {
             // 避免空字符串
             value = value.replaceAll(" ", "");
             // 避免script 标签
-            Pattern scriptPattern = Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE);
-            value = scriptPattern.matcher(value).replaceAll("");
+           /* Pattern scriptPattern = Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE);
+            value = scriptPattern.matcher(value).replaceAll("");*/
             // 避免src形式的表达式
-            scriptPattern = Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'",
+            Pattern scriptPattern = scriptPattern = Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'",
                     Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
             value = scriptPattern.matcher(value).replaceAll("");
             scriptPattern = Pattern.compile("src[\r\n]*=[\r\n]*\\\"(.*?)\\\"",

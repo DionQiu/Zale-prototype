@@ -15,6 +15,8 @@ public class TaleConst {
 
     public static final String    USER_IN_COOKIE    = "S_L_ID";
     public static final String    SENSITIVE_REPLACE_CHAR="x";
+    public static final int       LOGIN_MAX_ERROE_COUNT=3;
+    public static final int       EXCEED_LOGIN_MAX_ERROE_COUNT_WAIT_TIME=5*60;//5分钟
     public static       String      AES_SALT          = "0123456789abcdef";
     public static       String      LOGIN_SESSION_KEY = "login_user";
     public static       Environment OPTIONS           = Environment.of(new HashMap<>());

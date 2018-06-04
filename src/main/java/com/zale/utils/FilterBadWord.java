@@ -172,7 +172,7 @@ public class FilterBadWord {
         lastModified = wordfilter.lastModified();
     }
 
-   /* public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception{
         System.out.println(FilterBadWord.replace("中国共产党钓鱼岛sb","*"));
         System.out.println(FilterBadWord.replace(null,"*"));
         System.out.println(FilterBadWord.isContain("傻逼"));
@@ -180,7 +180,8 @@ public class FilterBadWord {
         System.out.println(FilterBadWord.isContain("弱智"));
         System.out.println(FilterBadWord.pick("中国共产党钓鱼岛sb","sb12"));
         FilterBadWord.add("傻逼");
-    }*/
+        System.out.println(FilterBadWord.lists());
+    }
 
 
 }

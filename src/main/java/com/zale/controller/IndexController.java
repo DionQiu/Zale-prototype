@@ -263,15 +263,12 @@ public class IndexController extends BaseController {
         comments.setParent(comments.getCoid());
         log.info("评论实体在过滤之前的内容: "+comments.toString());
         comments = commentsService.filterComments(comments);
-        if(comments==null){
-            return RestResponse.fail("您发表评论内容不合法,请修改后再试");
-        }
         try {
             commentsService.saveComment(comments);
-            response.cookie("tale_remember_author", URLEncoder.encode(comments.getAuthor(), "UTF-8"), 7 * 24 * 60 * 60);
-            response.cookie("tale_remember_mail", URLEncoder.encode(comments.getMail(), "UTF-8"), 7 * 24 * 60 * 60);
+            response.cookie("zale_remember_author", URLEncoder.encode(comments.getAuthor(), "UTF-8"), 7 * 24 * 60 * 60);
+            response.cookie("zale_remember_mail", URLEncoder.encode(comments.getMail(), "UTF-8"), 7 * 24 * 60 * 60);
             if (StringKit.isNotBlank(comments.getUrl())) {
-                response.cookie("tale_remember_url", URLEncoder.encode(comments.getUrl(), "UTF-8"), 7 * 24 * 60 * 60);
+                response.cookie("zale_remember_url", URLEncoder.encode(comments.getUrl(), "UTF-8"), 7 * 24 * 60 * 60);
             }
 
             // 设置对每个文章30秒可以评论一次

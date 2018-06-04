@@ -186,7 +186,7 @@ public class SiteService {
      * @param bkPath
      * @param fmt
      */
-    public BackResponse backup(String bkType, String bkPath, String fmt) throws Exception {
+/*    public BackResponse backup(String bkType, String bkPath, String fmt) throws Exception {
         BackResponse backResponse = new BackResponse();
         if ("attach".equals(bkType)) {
             if (StringKit.isBlank(bkPath)) {
@@ -225,7 +225,7 @@ public class SiteService {
             }, 10 * 1000);
         }
         return backResponse;
-    }
+    }*/
 
     /**
      * 获取分类/标签列表

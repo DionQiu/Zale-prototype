@@ -60,6 +60,7 @@ public class InstallController extends BaseController {
                 && TaleConst.OPTIONS.getInt("allow_install", 0) != 1) {
             return RestResponse.fail("请勿重复安装");
         }
+        //TODO　fix 由于数据库设置了用户名唯一约束,如果是重新安装再次使用相同的用户名，因为之前的数据还存在报错org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE]  A UNIQUE constraint failed (UNIQUE constraint failed: t_users.username)
         try {
             if (StringKit.isBlank(site_title) ||
                     StringKit.isBlank(site_url) ||

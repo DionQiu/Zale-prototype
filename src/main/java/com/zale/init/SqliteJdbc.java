@@ -43,16 +43,13 @@ public final class SqliteJdbc {
 
             DB_PATH = Const.CLASSPATH + File.separatorChar + DB_NAME;
             DB_SRC = "jdbc:sqlite://" + DB_PATH;
-
             if (devMode) {
                 DB_PATH = System.getProperty("user.dir") + "/" + DB_NAME;
                 DB_SRC = "jdbc:sqlite://" + DB_PATH;
             }
-
             log.info("blade dev mode: {}", devMode);
             log.info("load sqlite database path [{}]", DB_PATH);
             log.info("load sqlite database src [{}]", DB_SRC);
-
             Connection con       = DriverManager.getConnection(DB_SRC);
             Statement  statement = con.createStatement();
             ResultSet  rs        = statement.executeQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='t_options'");
@@ -73,5 +70,4 @@ public final class SqliteJdbc {
             log.error("initialize database fail", e);
         }
     }
-
 }

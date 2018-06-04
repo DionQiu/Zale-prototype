@@ -88,7 +88,6 @@ public class ContentsService {
         }
 
         contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
-
         int time = DateKit.nowUnix();
         contents.setCreated(time);
         contents.setModified(time);
@@ -110,6 +109,10 @@ public class ContentsService {
      * @param contents 文章对象
      */
     public void updateArticle(Contents contents) {
+
+/*
+        Optional.ofNullable()
+*/
         contents.setModified(DateKit.nowUnix());
         contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
         contents.setTags(contents.getTags() != null ? contents.getTags() : "");
@@ -118,13 +121,10 @@ public class ContentsService {
         String  tags       = contents.getTags();
         String  categories = contents.getCategories();
         Integer cid        = contents.getCid();
-
         contents.update(cid);
-
         if (null != contents.getType() && !contents.getType().equals(Types.PAGE)) {
             new Relationships().delete("cid", cid);
         }
-
         metasService.saveMetas(cid, tags, Types.TAG);
         metasService.saveMetas(cid, categories, Types.CATEGORY);
     }

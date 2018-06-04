@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * 分类管理
  *
- * Created by biezhi on 2017/2/21.
+ * Created by qyw on 2017/2/21.
  */
 @Slf4j
 @Path("admin/category")
