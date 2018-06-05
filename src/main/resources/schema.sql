@@ -18,7 +18,7 @@ CREATE TABLE t_comments (coid INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cid IN
 DROP TABLE IF EXISTS t_contents;
 
 CREATE TABLE t_contents ( cid INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE, title VARCHAR (255) NOT NULL, slug VARCHAR (255) CONSTRAINT idx_u_slug UNIQUE, thumb_img VARCHAR(255), created INTEGER (10) NOT NULL, modified INTEGER (10), content TEXT, author_id INTEGER (10) NOT NULL, type VARCHAR (16) NOT NULL, status VARCHAR (16) NOT NULL, fmt_type VARCHAR (16) DEFAULT ('markdown'), tags VARCHAR (200), categories VARCHAR (200), hits INTEGER (10) DEFAULT (0), comments_num INTEGER (1) DEFAULT (0), allow_comment INTEGER (1) DEFAULT (1), allow_ping INTEGER (1), allow_feed INTEGER (1) );
-INSERT INTO t_contents (cid, title, slug, created, modified, content, author_id, type, status, tags, categories, hits, comments_num, allow_comment, allow_ping, allow_feed) VALUES (1, '关于', 'about', 1487953610, 1487972488, '### Hello World
+INSERT INTO t_contents (cid, title, slug, created, modified, content, author_id, type, status, tags, categories, hits, comments_num, allow_comment, allow_ping, allow_feed) VALUES (1, '关于', 'about', 1519497184, 1519497184, '### Hello World
 
 这是我的关于页面
 
@@ -65,7 +65,7 @@ NULL,1,1,0,0,NULL,NULL,'markdown','publish','page',1,'## 友情链接
 
 暂时先这样，同时欢迎互换友链，这个页面留言即可。 ^_^
 
-还有，我会不定时对无法访问的网址进行清理，请保证自己的链接长期有效。',1505643888,1505643727,NULL,'links','友链',3);
+还有，我会不定时对无法访问的网址进行清理，请保证自己的链接长期有效。',1519497184,1519497184,NULL,'links','友链',3);
 
 -- 表：t_logs
 DROP TABLE IF EXISTS t_logs;
