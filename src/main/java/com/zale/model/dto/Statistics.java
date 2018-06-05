@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * 后台统计对象
  * <p>
- * Created by biezhi on 2017/9/24.
+ * Created by qyw on 2017/9/24.
  */
 @Data
 @AllArgsConstructor

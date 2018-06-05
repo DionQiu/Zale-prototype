@@ -3,7 +3,7 @@ package com.zale.model.dto;
 /**
  * 日志操作常量
  *
- * Created by biezhi on 2017/9/26.
+ * Created by qyw on 2017/9/26.
  */
 public interface LogActions {
 

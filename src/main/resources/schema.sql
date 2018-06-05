@@ -25,7 +25,7 @@ INSERT INTO t_contents (cid, title, slug, created, modified, content, author_id,
 ### 当然还有其他
 
 具体你来写点什么吧', 1, 'page', 'publish', NULL, NULL, 0, 0, 1, 1, 1);
-INSERT INTO t_contents (cid, title, slug, created, modified, content, author_id, type, status, tags, categories, hits, comments_num, allow_comment, allow_ping, allow_feed) VALUES (2, '第一篇文章', NULL, 1487961184, 1487972798, '## Hello  World.
+INSERT INTO t_contents (cid, title, slug, created, modified, content, author_id, type, status, tags, categories, hits, comments_num, allow_comment, allow_ping, allow_feed) VALUES (2, '第一篇文章', NULL,1519497184,1519497184, '## Hello  World.
 
 > 第一篇文章总得写点儿什么?...
 
@@ -81,8 +81,8 @@ DROP TABLE IF EXISTS t_options;
 CREATE TABLE t_options (name VARCHAR (100) PRIMARY KEY UNIQUE NOT NULL, value TEXT, description VARCHAR (255));
 INSERT INTO t_options (name, value, description) VALUES ('site_title', 'Zale博客系统', '');
 INSERT INTO t_options (name, value, description) VALUES ('social_weibo', '', NULL);
-INSERT INTO t_options (name, value, description) VALUES ('social_zhihu', '', NULL);
-INSERT INTO t_options (name, value, description) VALUES ('social_github', '', NULL);
+INSERT INTO t_options (name, value, description) VALUES ('social_zhihu', 'qiu-yong-wei-43/activities', NULL);
+INSERT INTO t_options (name, value, description) VALUES ('social_github', 'DionQiu', NULL);
 INSERT INTO t_options (name, value, description) VALUES ('social_twitter', '', NULL);
 INSERT INTO t_options (name, value, description) VALUES ('allow_install', '0', '是否允许重新安装博客');
 INSERT INTO t_options (name, value, description) VALUES ('site_theme', 'default', NULL);

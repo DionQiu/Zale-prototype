@@ -9,7 +9,11 @@ import com.zale.init.TaleConst;
 import com.zale.model.entity.Users;
 import com.zale.utils.TaleUtils;
 import lombok.extern.slf4j.Slf4j;
-
+/**
+* @Author qyw
+* @Description TODO
+* @Date Created in 10:08 2018/2/5
+**/        
 @Bean
 @Slf4j
 public class BaseWebHook implements WebHook {

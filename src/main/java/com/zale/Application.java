@@ -6,10 +6,10 @@ import com.blade.validator.ValidatorMiddleware;
 import com.zale.init.TaleLoader;
 
 /**
- * Tale启动类
- *
- * @author qyw
- */
+* @Author qyw
+* @Description TODO
+* @Date Created in 10:09 2018/2/5
+**/        
 public class Application {
 
     public static void main(String[] args) throws Exception {
