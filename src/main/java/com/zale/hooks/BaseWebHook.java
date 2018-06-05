@@ -21,7 +21,7 @@ public class BaseWebHook implements WebHook {
     /**
     * @Author qyw
     * @Description TODO
-    * @Date Created in 22:18 2018/6/5
+    * @Date Created in 10:08 2018/2/5
     * @Param [signature]
     * @Return boolean
     **/        
@@ -50,7 +50,7 @@ public class BaseWebHook implements WebHook {
             response.redirect(TaleConst.INSTALL_URI);
             return false;
         }
-
+        //
         if (TaleConst.INSTALLED) {
             return isRedirect(request, response);
         }
@@ -58,15 +58,19 @@ public class BaseWebHook implements WebHook {
     }
 
     private boolean isRedirect(Request request, Response response) {
+
         Users  user = ZaleUtils.getLoginUser();
         String uri  = request.uri();
+        //session是否过期
         if (null == user) {
+            //记住我
             Integer uid = ZaleUtils.getCookieUid(request);
             if (null != uid) {
                 user = new Users().find(uid);
                 request.session().attribute(TaleConst.LOGIN_SESSION_KEY, user);
             }
         }
+        //未登录与未记住我
         if (uri.startsWith(TaleConst.ADMIN_URI) && !uri.startsWith(TaleConst.LOGIN_URI)) {
             if (null == user) {
                 response.redirect(TaleConst.LOGIN_URI);

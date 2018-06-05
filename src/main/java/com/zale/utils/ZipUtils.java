@@ -7,8 +7,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * zip压缩工具类
- */
+* @Author qyw
+* @Description 文件压缩工具类
+* @Date Created in 22:42 2018/2/5
+**/        
 public class ZipUtils {
 
     public static void zipFolder(String srcFolder, String destZipFile) throws Exception {

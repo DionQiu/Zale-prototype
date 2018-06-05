@@ -6,6 +6,7 @@ import com.blade.event.BeanProcessor;
 import com.blade.ioc.Ioc;
 import com.blade.ioc.annotation.Bean;
 import com.blade.ioc.annotation.Inject;
+import com.blade.ioc.annotation.Order;
 import com.blade.jdbc.Base;
 import com.blade.kit.StringKit;
 import com.blade.mvc.view.template.JetbrickTemplateEngine;
@@ -30,10 +31,11 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Tale初始化进程
- *
- * @author qyw
- */
+* @Author qyw
+* @Description Zale初始化进程
+* @Date Created in 22:44 2018/2/5
+**/
+@Order(1)
 @Bean
 public class WebContext implements BeanProcessor {
 

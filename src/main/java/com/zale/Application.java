@@ -7,8 +7,8 @@ import com.zale.init.TaleLoader;
 
 /**
 * @Author qyw
-* @Description TODO
-* @Date Created in 10:09 2018/2/5
+* @Description 启动类
+* @Date Created in 10:09 2018/2/4
 **/        
 public class Application {
 

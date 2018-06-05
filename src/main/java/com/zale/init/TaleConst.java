@@ -7,7 +7,7 @@ import com.zale.model.dto.PluginMenu;
 import java.util.*;
 
 /**
- * Tale 常量存储
+ * Zale 常量存储
  *
  * @author qyw
  */

@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by qyw on 2018/4/19.
- */
+* @Author qyw
+* @Description 敏感词过滤工具类
+* @Date Created in 22:43 2018/3/5
+**/        
 public class FilterBadWord {
 
 

@@ -43,6 +43,7 @@ public final class SqliteJdbc {
 
             DB_PATH = Const.CLASSPATH + File.separatorChar + DB_NAME;
             DB_SRC = "jdbc:sqlite://" + DB_PATH;
+            //开发模式下,生成的db放在项目根目录下,便于开发
             if (devMode) {
                 DB_PATH = System.getProperty("user.dir") + "/" + DB_NAME;
                 DB_SRC = "jdbc:sqlite://" + DB_PATH;
