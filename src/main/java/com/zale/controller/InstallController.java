@@ -17,7 +17,7 @@ import com.zale.init.TaleConst;
 import com.zale.model.entity.Users;
 import com.zale.service.OptionsService;
 import com.zale.service.SiteService;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Files;
@@ -73,7 +73,7 @@ public class InstallController extends BaseController {
                 return RestResponse.fail("请输入6-14位密码");
             }
 
-            if (StringKit.isNotBlank(admin_email) && !TaleUtils.isEmail(admin_email)) {
+            if (StringKit.isNotBlank(admin_email) && !ZaleUtils.isEmail(admin_email)) {
                 return RestResponse.fail("邮箱格式不正确");
             }
 

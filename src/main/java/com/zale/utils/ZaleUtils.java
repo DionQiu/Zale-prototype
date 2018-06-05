@@ -43,7 +43,7 @@ import static com.zale.init.TaleConst.*;
  * <p>
  * Created by qyw on 2018/2/21.
  */
-public class TaleUtils {
+public class ZaleUtils {
 
     /**
      * 一个月
@@ -308,7 +308,7 @@ public class TaleUtils {
 
     public static String getSitemapXml(List<Contents> articles) {
         List<Url> urls = articles.stream()
-                .map(TaleUtils::parse)
+                .map(ZaleUtils::parse)
                 .collect(Collectors.toList());
         urls.add(new Url(Commons.site_url() + "/archives"));
 
@@ -399,7 +399,7 @@ public class TaleUtils {
     }
 
    /* public static void main(String[] args) {
-        System.out.println(TaleUtils.cleanXSS("<script>alert('xss测试');</script>"));
+        System.out.println(ZaleUtils.cleanXSS("<script>alert('xss测试');</script>"));
     }*/
 
     /**

@@ -13,7 +13,7 @@ import com.zale.model.entity.Comments;
 import com.zale.model.entity.Contents;
 import com.zale.model.entity.Metas;
 import com.zale.service.SiteService;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import jetbrick.template.runtime.InterpretContext;
 
 import java.io.UnsupportedEncodingException;
@@ -290,9 +290,9 @@ public final class Theme {
         int pos = value.indexOf("<!--more-->");
         if (pos != -1) {
             String html = value.substring(0, pos);
-            return TaleUtils.htmlToText(TaleUtils.mdToHtml(html));
+            return ZaleUtils.htmlToText(ZaleUtils.mdToHtml(html));
         } else {
-            String text = TaleUtils.htmlToText(TaleUtils.mdToHtml(value));
+            String text = ZaleUtils.htmlToText(ZaleUtils.mdToHtml(value));
             if (text.length() > len) {
                 return text.substring(0, len);
             }
@@ -309,7 +309,7 @@ public final class Theme {
     public static String article(String value) {
         if (StringKit.isNotBlank(value)) {
             value = value.replace("<!--more-->", "\r\n");
-            return TaleUtils.mdToHtml(value);
+            return ZaleUtils.mdToHtml(value);
         }
         return "";
     }

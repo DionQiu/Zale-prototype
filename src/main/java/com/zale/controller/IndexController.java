@@ -23,8 +23,7 @@ import com.zale.service.CommentsService;
 import com.zale.service.ContentsService;
 import com.zale.service.MetasService;
 import com.zale.service.SiteService;
-import com.zale.utils.TaleUtils;
-import com.vdurmont.emoji.EmojiParser;
+import com.zale.utils.ZaleUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URLEncoder;
@@ -197,7 +196,7 @@ public class IndexController extends BaseController {
                 .findAll(OrderBy.desc("created"));
 
         try {
-            String xml = TaleUtils.getRssXml(articles);
+            String xml = ZaleUtils.getRssXml(articles);
             response.contentType("text/xml; charset=utf-8");
             response.body(xml);
         } catch (Exception e) {
@@ -217,7 +216,7 @@ public class IndexController extends BaseController {
                 .findAll(OrderBy.desc("created"));
 
         try {
-            String xml = TaleUtils.getSitemapXml(articles);
+            String xml = ZaleUtils.getSitemapXml(articles);
             response.contentType("text/xml; charset=utf-8");
             response.body(xml);
         } catch (Exception e) {
@@ -233,7 +232,7 @@ public class IndexController extends BaseController {
      */
     @Route(value = "logout")
     public void logout(Session session, Response response) {
-        TaleUtils.logout(session, response);
+        ZaleUtils.logout(session, response);
     }
 
     /**

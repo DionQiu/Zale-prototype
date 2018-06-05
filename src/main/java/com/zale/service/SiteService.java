@@ -9,20 +9,15 @@ import com.blade.kit.BladeKit;
 import com.blade.kit.DateKit;
 import com.blade.kit.EncryptKit;
 import com.blade.kit.StringKit;
-import com.zale.controller.admin.AttachController;
 import com.zale.exception.TipException;
 import com.zale.extension.Theme;
-import com.zale.init.SqliteJdbc;
 import com.zale.init.TaleConst;
 import com.zale.model.dto.*;
 import com.zale.model.entity.*;
 import com.zale.utils.MapCache;
-import com.zale.utils.TaleUtils;
-import com.zale.utils.ZipUtils;
+import com.zale.utils.ZaleUtils;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -256,7 +251,7 @@ public class SiteService {
         if (Types.RANDOM_META.equals(searchType)) {
             List<Integer> mids = new ActiveRecord().queryAll(Integer.class, "select mid from t_metas where type = ? order by random() * mid limit ?", type, limit);
             if (BladeKit.isNotEmpty(mids)) {
-                String in = TaleUtils.listToInSql(mids);
+                String in = ZaleUtils.listToInSql(mids);
                 String sql = "select a.*, count(b.cid) as count from t_metas a left join `t_relationships` b on a.mid = b.mid " +
                         "where a.mid in " + in + "group by a.mid order by count desc, a.mid desc";
 

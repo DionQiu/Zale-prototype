@@ -18,7 +18,7 @@ import com.zale.model.dto.LogActions;
 import com.zale.model.entity.Logs;
 import com.zale.model.entity.Users;
 import com.zale.model.param.LoginParam;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -64,7 +64,7 @@ public class AuthController extends BaseController {
             }
             session.attribute(TaleConst.LOGIN_SESSION_KEY, user);
             if (StringKit.isNotBlank(loginParam.getRemeberMe())) {
-                TaleUtils.setCookie(response, user.getUid());
+                ZaleUtils.setCookie(response, user.getUid());
             }
 
             Users temp = new Users();

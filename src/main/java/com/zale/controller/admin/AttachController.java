@@ -21,7 +21,7 @@ import com.zale.model.entity.Attach;
 import com.zale.model.entity.Logs;
 import com.zale.model.entity.Users;
 import com.zale.service.SiteService;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -79,7 +79,7 @@ public class AttachController extends BaseController {
     @JSON
     public RestResponse upload(Request request) {
 
-        log.info("UPLOAD DIR = {}", TaleUtils.UP_DIR);
+        log.info("UPLOAD DIR = {}", ZaleUtils.UP_DIR);
 
         Users                 users       = this.user();
         Integer               uid         = users.getUid();
@@ -92,10 +92,10 @@ public class AttachController extends BaseController {
                 String fname = f.getFileName();
 
                 if ((f.getLength() / 1024) <= TaleConst.MAX_FILE_SIZE) {
-                    String fkey = TaleUtils.getFileKey(fname);
+                    String fkey = ZaleUtils.getFileKey(fname);
 
                     String ftype    = f.getContentType().contains("image") ? Types.IMAGE : Types.FILE;
-                    String filePath = TaleUtils.UP_DIR + fkey;
+                    String filePath = ZaleUtils.UP_DIR + fkey;
 
                     try {
                         Files.write(Paths.get(filePath), f.getData());

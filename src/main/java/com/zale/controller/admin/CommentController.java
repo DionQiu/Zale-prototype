@@ -14,7 +14,7 @@ import com.zale.model.entity.Users;
 import com.zale.service.CommentsService;
 import com.zale.service.SiteService;
 import com.zale.utils.FilterBadWord;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
 
@@ -108,7 +108,7 @@ public class CommentController extends BaseController {
         }
         Users users = this.user();
 
-        content = TaleUtils.cleanXSS(content);
+        content = ZaleUtils.cleanXSS(content);
 
         content = FilterBadWord.replace(content, "*");
 

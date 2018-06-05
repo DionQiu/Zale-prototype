@@ -5,7 +5,7 @@ import com.blade.kit.*;
 import com.zale.controller.BaseController;
 import com.zale.init.TaleConst;
 import com.zale.service.SiteService;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 
 import java.util.Date;
@@ -241,7 +241,7 @@ public final class Commons {
      * @return
      */
     public static String show_thumb(String content) {
-        content = TaleUtils.mdToHtml(content);
+        content = ZaleUtils.mdToHtml(content);
         if (content.contains("<img")) {
             String  img       = "";
             String  regEx_img = "<img.*src\\s*=\\s*(.*?)[^>]*?>";

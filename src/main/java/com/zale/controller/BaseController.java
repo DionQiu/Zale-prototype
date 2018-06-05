@@ -3,7 +3,7 @@ package com.zale.controller;
 import com.blade.mvc.http.Request;
 import com.zale.model.entity.Users;
 import com.zale.utils.MapCache;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 
 /**
  * Created by qyw on 2018/2/21.
@@ -29,7 +29,7 @@ public abstract class BaseController {
     }
 
     public Users user() {
-        return TaleUtils.getLoginUser();
+        return ZaleUtils.getLoginUser();
     }
 
     public Integer getUid(){

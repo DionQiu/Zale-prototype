@@ -12,7 +12,7 @@ import com.zale.model.dto.Types;
 import com.zale.model.entity.Comments;
 import com.zale.model.entity.Contents;
 import com.zale.model.entity.Relationships;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 
 import java.util.Optional;
@@ -77,7 +77,7 @@ public class ContentsService {
             if (contents.getSlug().length() < 5) {
                 throw new TipException("路径太短了");
             }
-            if (!TaleUtils.isPath(contents.getSlug())) {
+            if (!ZaleUtils.isPath(contents.getSlug())) {
                 throw new TipException("您输入的路径不合法");
             }
 

@@ -7,17 +7,24 @@ import com.blade.mvc.http.Request;
 import com.blade.mvc.http.Response;
 import com.zale.init.TaleConst;
 import com.zale.model.entity.Users;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 import lombok.extern.slf4j.Slf4j;
 /**
 * @Author qyw
-* @Description TODO
+* @Description 拦截器
 * @Date Created in 10:08 2018/2/5
 **/        
 @Bean
 @Slf4j
 public class BaseWebHook implements WebHook {
 
+    /**
+    * @Author qyw
+    * @Description TODO
+    * @Date Created in 22:18 2018/6/5
+    * @Param [signature]
+    * @Return boolean
+    **/        
     @Override
     public boolean before(Signature signature) {
         Request  request  = signature.request();
@@ -38,7 +45,7 @@ public class BaseWebHook implements WebHook {
         if (uri.startsWith(TaleConst.STATIC_URI)) {
             return true;
         }
-
+        //未安装跳转到安装界面
         if (!TaleConst.INSTALLED && !uri.startsWith(TaleConst.INSTALL_URI)) {
             response.redirect(TaleConst.INSTALL_URI);
             return false;
@@ -51,10 +58,10 @@ public class BaseWebHook implements WebHook {
     }
 
     private boolean isRedirect(Request request, Response response) {
-        Users  user = TaleUtils.getLoginUser();
+        Users  user = ZaleUtils.getLoginUser();
         String uri  = request.uri();
         if (null == user) {
-            Integer uid = TaleUtils.getCookieUid(request);
+            Integer uid = ZaleUtils.getCookieUid(request);
             if (null != uid) {
                 user = new Users().find(uid);
                 request.session().attribute(TaleConst.LOGIN_SESSION_KEY, user);

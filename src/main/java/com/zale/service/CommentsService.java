@@ -13,7 +13,7 @@ import com.zale.model.dto.Comment;
 import com.zale.model.entity.Comments;
 import com.zale.model.entity.Contents;
 import com.zale.utils.FilterBadWord;
-import com.zale.utils.TaleUtils;
+import com.zale.utils.ZaleUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,15 +133,15 @@ public class CommentsService {
      */
 
     public Comments filterComments(Comments comments){
-        String authorXssed = TaleUtils.cleanXSS(comments.getAuthor());
-        String contentXssed = TaleUtils.cleanXSS(comments.getContent());
+        String authorXssed = ZaleUtils.cleanXSS(comments.getAuthor());
+        String contentXssed = ZaleUtils.cleanXSS(comments.getContent());
         comments.setAuthor(EmojiParser.parseToAliases(FilterBadWord.replace(authorXssed, TaleConst.SENSITIVE_REPLACE_CHAR)));
         comments.setContent(EmojiParser.parseToAliases(FilterBadWord.replace(contentXssed,TaleConst.SENSITIVE_REPLACE_CHAR)));
         return comments;
     }
 
     /*public static void main(String[] args) {
-        System.out.println(TaleUtils.cleanXSS("<script>alert(1)</script>"));
+        System.out.println(ZaleUtils.cleanXSS("<script>alert(1)</script>"));
     }*/
 
 }
