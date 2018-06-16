@@ -112,7 +112,6 @@ public class SiteService {
         }
 
 
-
         long articles   = new Contents().where("type", Types.ARTICLE).and("status", Types.PUBLISH).count();
         long pages      = new Contents().where("type", Types.PAGE).and("status", Types.PUBLISH).count();
         long comments   = new Comments().count();
@@ -121,7 +120,7 @@ public class SiteService {
         long categories = new Metas().where("type", Types.CATEGORY).count();
 
 
-        statistics = new Statistics(articles,pages,comments,categories,tags,attachs);
+        statistics = new Statistics(articles, pages, comments, categories, tags, attachs);
 
         mapCache.set(Types.C_STATISTICS, statistics);
         return statistics;
@@ -264,8 +263,8 @@ public class SiteService {
     /**
      * 获取相邻的文章
      *
-     * @param type 上一篇:prev | 下一篇:next
-     * @param created  当前文章创建时间
+     * @param type    上一篇:prev | 下一篇:next
+     * @param created 当前文章创建时间
      */
     public Contents getNhContent(String type, Integer created) {
         Contents contents = null;
